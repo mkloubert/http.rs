@@ -1,0 +1,15 @@
+[package]
+name = "rshttp"
+version = "1.0.0"
+edition = "2021"
+authors = ["Marcel Joachim Kloubert"]
+description = "A simple CLI tool to serve the current directory over HTTP."
+homepage = "https://marcel.coffee"
+repository = "https://github.com/mkloubert/http.rs.git"
+license = "MIT"
+keywords = ["static", "file-server", "http", "warp", "rust"]
+
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+warp = "0.3"
+clap = { version = "4", features = ["derive"] }
