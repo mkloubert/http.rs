@@ -14,8 +14,8 @@ jobs:
             os: ubuntu-latest
           - target: i686-unknown-linux-gnu
             os: ubuntu-latest
-          # - target: aarch64-unknown-linux-gnu
-          #   os: ubuntu-latest
+          - target: aarch64-unknown-linux-gnu
+            os: ubuntu-latest
           - target: x86_64-pc-windows-gnu
             os: ubuntu-latest
           - target: i686-pc-windows-gnu
@@ -40,6 +40,7 @@ jobs:
 
       - name: Install build tools (if needed)
         run: |
+          rustup target add "${{ matrix.target }}"
           if [[ "${{ matrix.target }}" == *windows* ]]; then
             sudo apt-get update && sudo apt-get install -y mingw-w64
           fi
