@@ -74,16 +74,17 @@ jobs:
           path: dist/
 
       - name: Get version
-        id: version
+        id: appversion
         run: |
           ver=$(grep '^version' Cargo.toml | head -n1 | cut -d '"' -f2)
+          echo "version=$ver"
           echo "version=$ver" >> $GITHUB_OUTPUT
 
       - name: Create Release
         uses: softprops/action-gh-release@v2.2.2
         with:
-          tag_name: v${{ steps.version.outputs.version }}
-          name: Release v${{ steps.version.outputs.version }}
+          tag_name: v${{ steps.appversion.outputs.version }}
+          name: Release v${{ steps.appversion.outputs.version }}
           files: dist/**/*
         env:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
