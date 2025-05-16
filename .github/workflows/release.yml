@@ -48,7 +48,7 @@ jobs:
         run: cargo build --release --target=${{ matrix.target }}
 
       - name: Upload artifact
-        uses: echapmanFromBunnings/upload-artifact@3.0
+        uses: echapmanFromBunnings/upload-artifact@3
         with:
           name: ${{ matrix.target }}
           path: target/${{ matrix.target }}/release/rshttp
